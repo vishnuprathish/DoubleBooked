@@ -16,6 +16,7 @@ public class OverlapDetector {
     public List<Conflict> detectOverlap(List<Event> eventList) {
         List<Conflict> conflicts = new ArrayList<Conflict>();
 
+        assert eventList != null;
         Collections.sort(eventList); // by starttime. to solve it in N later
 
         int eventListSize = eventList.size();

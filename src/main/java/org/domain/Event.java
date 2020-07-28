@@ -6,13 +6,11 @@ import java.util.Objects;
 public class Event implements Comparable<Event> {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private String title; // identifier will be an auto-gen Id when there is a db behind this
 
 
-    public Event(LocalDateTime startTime, LocalDateTime endTime, String title) {
+    public Event(LocalDateTime startTime, LocalDateTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
-        this.title = title;
     }
 
     public LocalDateTime getStartTime() {
@@ -32,15 +30,6 @@ public class Event implements Comparable<Event> {
     }
 
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-
 
     @Override
     public boolean equals(Object o) {
@@ -48,13 +37,12 @@ public class Event implements Comparable<Event> {
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
         return getStartTime().equals(event.getStartTime()) &&
-                getEndTime().equals(event.getEndTime()) &&
-                getTitle().equals(event.getTitle());
+                getEndTime().equals(event.getEndTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getStartTime(), getEndTime(), getTitle());
+        return Objects.hash(getStartTime(), getEndTime());
     }
 
     @Override
